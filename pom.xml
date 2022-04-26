@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wusn</groupId>
+    <artifactId>spider-study</artifactId>
+    <version>0.0.1.a-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>spider-study</name>
+    <url>http://www.wusn.com</url>
+
+    <properties>
+        <!-- 进行工程编码声明 -->
+        <!-- 进行JDK版本声明 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- 进行资源的统一声明 -->
+        <!-- 进行版本声明 -->
+        <!-- 集中定义依赖版本号 -->
+        <spring-boot.version>2.6.6</spring-boot.version>
+        <selenium.version>4.1.2</selenium.version>
+        <webdriver-manager.version>5.1.1</webdriver-manager.version>
+        <!-- Maven插件版本声明 -->
+        <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+    </properties>
+
+    <!-- 声明资源的坐标 -->
+    <!-- 只定义依赖的版本，并不实际依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!--    Selenium    -->
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>${selenium.version}</version>
+            </dependency>
+            <!--    WebDriverManager    -->
+            <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${webdriver-manager.version}</version>
+            </dependency>
+            <!-- 程序自身组件 -->
+            <dependency>
+                <groupId>com.wusn</groupId>
+                <artifactId>spider</artifactId>
+                <version>0.0.1.a-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>spider</module>
+    </modules>
+</project>
